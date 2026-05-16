@@ -194,9 +194,9 @@ export default function UpgradePage() {
               gap: 12,
             }}>
               {[
-                { label: 'Beneficiar', value: 'SC MONITOR ANAF SRL' },
-                { label: 'IBAN', value: 'RO38 RNCB 0128 1413 8918 0002' },
-                { label: 'Bancă', value: 'BCR' },
+                { label: 'Beneficiar', value: 'ANTANEMA TECH VISION S.R.L.' },
+                { label: 'IBAN', value: 'RO97 BTRL RONC RT0C V228 4101' },
+                { label: 'Bancă', value: 'Banca Transilvania' },
                 { label: 'Sumă', value: planPrice + '/lună' },
                 { label: 'Referință', value: email },
               ].map(row => (

@@ -169,7 +169,7 @@ export default function DashboardPage() {
             <div style={{ fontSize: 11, color: 'var(--text2)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user?.email}</div>
           </div>
           <button
-            onClick={() => supabase.auth.signOut().then(() => router.push('/login'))}
+            onClick={async () => { await supabase.auth.signOut(); window.location.href = '/login' }}
             style={{
               width: '100%', padding: '7px 10px', borderRadius: 7,
               background: 'transparent', border: '1px solid var(--border)',
@@ -218,7 +218,7 @@ export default function DashboardPage() {
               {/* Add form */}
               <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 12, padding: '18px 20px' }}>
                 <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 12 }}>
-                  Adaugă firmă nouă
+                  Monitorizează CUI nou
                 </div>
                 <form onSubmit={addCompany} style={{ display: 'flex', gap: 10 }}>
                   <input
@@ -237,14 +237,16 @@ export default function DashboardPage() {
                     type="submit"
                     disabled={adding || used >= limit}
                     style={{
-                      background: adding || used >= limit ? 'var(--border)' : '#6366f1',
+                      background: adding || used >= limit ? 'var(--border)' : 'linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)',
+                      boxShadow: adding || used >= limit ? 'none' : '0 0 16px rgba(0, 198, 255, 0.45)',
                       color: '#fff', border: 'none', borderRadius: 8,
                       padding: '9px 20px', fontSize: 13, fontWeight: 600,
                       cursor: adding || used >= limit ? 'default' : 'pointer',
                       opacity: adding || used >= limit ? 0.6 : 1,
+                      transition: 'box-shadow 0.2s',
                     }}
                   >
-                    {adding ? 'Se adaugă...' : '+ Adaugă'}
+                    {adding ? 'Se procesează...' : 'Monitorizează'}
                   </button>
                 </form>
                 {addError && <p style={{ color: '#ef4444', fontSize: 12, marginTop: 8 }}>{addError}</p>}

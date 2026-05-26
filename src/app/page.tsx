@@ -10,6 +10,9 @@ export default function HomePage() {
           <span className="font-bold text-gray-900 text-lg">Monitor ANAF Pro</span>
           <div className="flex items-center gap-4">
             <a href="#preturi" className="text-sm text-gray-500 hover:text-gray-700">Prețuri</a>
+            <Link href="/login" className="text-sm text-gray-600 hover:text-gray-900 font-medium">
+              Login
+            </Link>
             <Link
               href="/login"
               className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
